@@ -30,7 +30,7 @@ if(isset($_POST['submit'])){
     //print_r($count_num);
 
 
-  if ($count_user > 0 && $count_student < 1 ) {
+  if ($count_user > 0&& count_student < 1 && $count_num < 1 ) {
      header("Location: ../borrow.php?error");
     }else{
     $borrow="INSERT INTO borrow(book, date, name, cardnum) VALUES ('$book_name','$date','$name','$idnum')";
