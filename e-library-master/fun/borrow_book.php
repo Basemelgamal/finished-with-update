@@ -15,22 +15,22 @@ if(isset($_POST['submit'])){
 
     $select_student="SELECT * FROM student WHERE name='$name' ";
     $student_result = $conn->query($select_student);
-    $row = $student_result->fetch_assoc();
+    $row1 = $student_result->fetch_assoc();
     $count_student=$student_result->num_rows;
 
-    $select_num="SELECT * FROM student WHERE num='$idnum' ";
-    $num_result = $conn->query($select_num);
-    $row = $num_result->fetch_assoc();
-    $count_num=$num_result->num_rows;
+//    $select_num="SELECT * FROM student WHERE num='$idnum' ";
+//    $num_result = $conn->query($select_num);
+//    $row2 = $num_result->fetch_assoc();
+//    $count_num=$num_result->num_rows;
 
 
-    //print_r($count_user);
+  //  print_r($count_user);
 
-    //print_r($count_student);
+//    print_r($count_student);
     //print_r($count_num);
 
 
-  if ($count_user > 0&& count_student < 1 && $count_num < 1 ) {
+  if ($count_user === 0 and $count_student === 0 ) {
      header("Location: ../borrow.php?error");
     }else{
     $borrow="INSERT INTO borrow(book, date, name, cardnum) VALUES ('$book_name','$date','$name','$idnum')";
